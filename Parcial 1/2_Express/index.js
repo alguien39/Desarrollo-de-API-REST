@@ -2,6 +2,17 @@ const express = require('express');
 const app = express();
 const PORT = 3012;
 
+app.use('/Alumno', (req,res,next) =>{
+    if(req.query.NumControl > 22100000 && req.query.NumControl < 23000000){
+        console.log('El Alumno esta de la generacion 2022');
+        next();
+    }
+    else{
+        res.status(400);
+        res.send('Numero de control fuera de rango');
+    }
+});
+
 app.get('/Alumno', (req, res) => {
     res.send('GET Hola ' + req.query.Nombre);
 });
