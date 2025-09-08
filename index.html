@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form target="respuestas" action="http://localhost:3012/Alumno" method="GET">
+        <input type="text" name="Nombre" placeholder="Nombre">
+        <input type="text" name="Carrera" placeholder="Carrera">
+        <button id="btnHTTP" type="submit">EnviarHTTP</button>
+    </form>
+    <iframe name="respuestas"></iframe>
+    <br></br>
+
+    <button id="btnJS">EnviarJS</button>
+
+    <script>
+        Carrera = Document.getElementById('Carrera').value;
+        Nombre = Document.getElementById('Nombre').value;
+
+        document.getElementById('btnJS').addEventListener('click', () => {
+            fetch(`http://localhost:3012/Alumno/${Carrera}?Nombre=${Nombre}`, {method: 'GET'} )
+            .then(res => res.text())
+            .then(data => console.log(data))
+            .catch(err => console.error('Error en el fetch', err));
+        });
+    </script>
+</body>
+</html>

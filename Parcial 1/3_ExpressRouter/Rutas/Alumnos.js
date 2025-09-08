@@ -1,4 +1,4 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -11,4 +11,4 @@ router.get('/:Carrera',(req,res) =>{
     console.log("Prueba de router");
 });
 
-module.exports.router = router;
+export const routerAlumnos = router;
