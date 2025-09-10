@@ -1,12 +1,13 @@
 import express from 'express';
 import cors from 'cors'
-import {routerAlumnos} from './Rutas/Alumnos.js';
-import {routerMaestros} from './Rutas/Maestros.js';
 import morgan from 'morgan';
+import multer from 'multer';
 import fs from 'fs';
 import path from 'path';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {routerAlumnos} from './Rutas/Alumnos.js';
+import {routerMaestros} from './Rutas/Maestros.js';
     
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -19,8 +20,13 @@ const PORT = 3012;
 //Logger
 app.use(morgan('combined', {stream: accessLogStream}));
 
+const folder = path.join(__dirname, 'Archivos');
+const upload = multer({dest: folder});
+
 //Middleware
 app.use(cors());
+app.use(upload.single('archivo'));
+app.use(upload.none());
 
 //Rutas
 app.use('/Alumno', routerAlumnos);
