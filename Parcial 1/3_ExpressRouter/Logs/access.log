@@ -42,3 +42,4 @@
 ::1 - - [12/Sep/2025:14:56:45 +0000] "GET /Alumno/ObtenerPaises HTTP/1.1" 200 49 "-" "HTTPie"
 ::1 - - [12/Sep/2025:14:57:27 +0000] "GET /Alumno/ObtenerPaises HTTP/1.1" 200 49 "-" "HTTPie"
 ::1 - - [12/Sep/2025:14:57:29 +0000] "GET /Alumno/ObtenerPaises HTTP/1.1" 200 49 "-" "HTTPie"
+::1 - - [12/Sep/2025:14:57:37 +0000] "GET /Alumno/ObtenerPaises HTTP/1.1" 200 84198 "-" "HTTPie"
