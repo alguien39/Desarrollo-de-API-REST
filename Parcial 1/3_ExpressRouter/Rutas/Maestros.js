@@ -1,14 +1,13 @@
 import express from 'express';
+import { obtenerMaestros, crearMaestro, obtenerMaestroporDepartamento } from '../Controlador/maestrosControlador';
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.send('Hola Maestro ' + req.query.Nombre);
-    console.log("Prueba de router");
+    obtenerMaestros(req, res);
 });
 
 router.get('/:Departamento',(req,res) =>{
-    res.send('Maestro ' + req.query.Nombre + ' del departamento de ' + req.params.Departamento);
-    console.log("Prueba de router");
+    obtenerMaestroporDepartamento(req,res);
 });
 
 export const routerMaestros = router;

@@ -1,14 +1,13 @@
 import express from 'express';
+import { obtenerAlumnos, crearAlumno, obtenerAlumnoporCarrera } from '../Controlador/alumnosControlador';
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.send('GET Hola ' + req.query.Nombre);
-    console.log("Prueba de router");
+    obtenerAlumnos(req, res);
 });
 
 router.get('/:Carrera',(req,res) =>{
-    res.send('GET Alumno ' + req.query.Nombre + ' de la carrera de ' + req.params.Carrera);
-    console.log("Prueba de router");
+    obtenerAlumnoporCarrera(req,res);
 });
 
 export const routerAlumnos = router;
