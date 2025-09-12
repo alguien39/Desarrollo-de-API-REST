@@ -1,5 +1,5 @@
 import express from 'express';
-import { obtenerMaestros, crearMaestro, obtenerMaestroporDepartamento } from '../Controlador/maestrosControlador';
+import { obtenerMaestros, crearMaestro, obtenerMaestroporDepartamento } from '../Controlador/maestrosControlador.js';
 const router = express.Router();
 
 router.get('/', (req, res) => {
