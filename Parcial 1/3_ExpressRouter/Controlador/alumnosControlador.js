@@ -9,8 +9,8 @@ const connection = await mysql.createConnection({
 });
 
 export function obtenerAlumnos(req, res){
-    res.send('Obteniendo Alumnos');
     console.log(req.body);
+    res.send('Obteniendo Alumnos');
 }
 
 export function obtenerAlumnoporCarrera(req, res){
