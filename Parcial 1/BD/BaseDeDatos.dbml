@@ -1,0 +1,63 @@
+// Batman DC Universe Database
+Project batman_dc_universe {
+    database_type: 'MySQL'
+    Note: 'Base de datos de Batman de héroes y villanos'
+}
+
+Table personajes {
+    id int [pk, increment]
+    nombre_civil varchar(100)
+    alias_heroico varchar(100) [not null, unique]
+    afiliacion enum('Héroe', 'Villano', 'Anti-héroe') [not null]
+    ciudad_operacion varchar(100)
+    descripcion text
+    fecha_creacion date
+    estado enum('Activo', 'Retirado', 'Fallecido', 'Desconocido') [default: 'Activo']
+}
+
+Table poderes {
+    id int [pk, increment]
+    poder varchar(100) [not null, unique]
+    descripcion text
+}
+
+Table habilidades {
+    id int [pk, increment]
+    habilidad varchar(100) [not null, unique]
+    descripcion text
+}
+
+Table debilidades {
+    id int [pk, increment]
+    debilidad varchar(100) [not null, unique]
+    descripcion text
+}
+
+Table personaje_poderes {
+    personaje_id int [ref: > personajes.id]
+    poder_id int [ref: > poderes.id]
+    nivel enum('Bajo', 'Medio', 'Alto', 'Extremo') [default: 'Medio']
+}
+
+Table personaje_habilidades {
+    personaje_id int [ref: > personajes.id]
+    habilidad_id int [ref: > habilidades.id]
+    maestria enum('Básica', 'Intermedia', 'Avanzada', 'Maestra') [default: 'Intermedia']
+}
+
+Table personaje_debilidades {
+    personaje_id int [ref: > personajes.id]
+    debilidad_id int [ref: > debilidades.id]
+    severidad enum('Leve', 'Moderada', 'Severa', 'Crítica') [default: 'Moderada']
+    notas text
+}
+
+Table planes_contingencia {
+    id int [pk, increment]
+    personaje_id int [not null, ref: > personajes.id]
+    codigo_plan varchar(50) [not null]
+    descripcion_plan text [not null]
+    efectividad enum('Baja', 'Media', 'Alta', 'Probada') [default: 'Media']
+    ubicacion_archivo varchar(200)
+    fecha_creacion date [default: `CURRENT_DATE`]
+}
