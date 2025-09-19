@@ -1,5 +1,5 @@
-// Batman DC Universe Database
-Project batman_dc_universe {
+// Batman DB 
+Project batman_DB {
     database_type: 'MySQL'
     Note: 'Base de datos de Batman de héroes y villanos'
 }
