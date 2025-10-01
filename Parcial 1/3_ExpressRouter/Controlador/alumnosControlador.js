@@ -9,7 +9,7 @@ const connection = await mysql.createConnection({
 });
 
 export function obtenerAlumnos(req, res){
-    console.log(req.body);
+    console.log(req.body.NumControl);
     res.send('Obteniendo Alumnos');
 }
 
@@ -30,16 +30,40 @@ export function crearAlumno(req, res){
 }
 
 export async function obtenerPaises(req, res){
-    // A simple SELECT query
+    let consultasql = '';
+    if (!req.query.Id) {
+        consultasql = 'SELECT Name FROM `city`';
+    }
+    else {
+        consultasql = `SELECT Name FROM city WHERE ID=${req.query.Id}`;
+    }
     try {
-    const [results, fields] = await connection.query(
-        'SELECT Name FROM `city`'
-    );
-
-    console.log(results); // results contains rows returned by server
-    console.log(fields); // fields contains extra meta data about results, if available
-    res.json(results);
+    const [results, fields] = await connection.query(consultasql);
+    if (!results.length) {
+        res.status(404);
+        return res.json({error: 'No se encontraron países con el ID proporcionado'});
+    }
+    else{
+        res.json(results);
+    }
     } catch (err) {
-    console.log(err);
+    res.json({error: 'Error al obtener los países'});
+    }
+}
+
+export async function actualizarPais(req, res){
+    const id = req.params.Id;
+    const nuevoNombre = req.params.Nombre;
+    try{
+        const [results, fields] = await connection.query(`Update city Set Name='${nuevoNombre}' where Id=${id}`);
+        if (results.affectedRows === 0) {
+            res.status(404);
+            return res.json({error: 'No se encontró ningún país con el ID proporcionado'});
+        }
+        res.json({mensaje: 'País actualizado correctamente'});
+    }
+    catch(err){
+        res.json({error: 'Error al actualizar el país'});
+        res.status(500);
     }
 }

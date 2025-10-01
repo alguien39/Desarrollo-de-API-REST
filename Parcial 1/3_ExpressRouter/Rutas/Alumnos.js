@@ -1,5 +1,5 @@
 import express from 'express';
-import { obtenerAlumnos, crearAlumno,  obtenerAlumnoporCarrera, obtenerPaises } from '../Controlador/alumnosControlador.js';
+import { obtenerAlumnos, crearAlumno,  obtenerAlumnoporCarrera, obtenerPaises, actualizarPais } from '../Controlador/alumnosControlador.js';
 
 const router = express.Router();
 
@@ -17,6 +17,10 @@ router.post('/Crear', (req, res) => {
 
 router.get('/ObtenerPaises', (req, res) => {
     obtenerPaises(req, res);
+});
+
+router.get('/ActualizarPais', (req, res) => {
+    actualizarPais(req, res);
 });
 
 export const routerAlumnos = router;

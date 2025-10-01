@@ -1,0 +1,10 @@
+Super Heroes:
+  - Nombre: "Superman"
+    Poder: "Super fuerza, vuelo, visión de rayos X"
+    Debilidad: "Kryptonita"
+  - Nombre: "Batman"
+    Poder: "Intelecto superior, habilidades de combate"
+    Debilidad: "Humano sin poderes"
+  - Nombre: "Wonder woman"
+    poder: "Super Fuerza, velocidad, vuelo"
+    Debilidad: "Ninguna"

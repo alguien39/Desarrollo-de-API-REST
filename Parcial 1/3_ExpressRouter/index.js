@@ -7,19 +7,23 @@ import {dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {routerAlumnos} from './Rutas/Alumnos.js';
 import {routerMaestros} from './Rutas/Maestros.js';
+import multer from 'multer';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const PORT = 3012;
+const upload = multer({ dest: '.uploads/' });
 
 //Logger
 const accessLogStream = fs.createWriteStream(
     path.join(__dirname, 'logs','access.log'),
      {flags: 'a'}
 );
+
 //Middleware
 app.use(cors());
 app.use(morgan('combined', {stream: accessLogStream}));
+app.use(upload.single('archivo'));
 
 //Rutas
 app.use('/Alumno', routerAlumnos);
