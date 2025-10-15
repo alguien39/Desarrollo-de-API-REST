@@ -25,6 +25,11 @@ app.use(cors());
 app.use(morgan('combined', {stream: accessLogStream}));
 app.use(upload.single('archivo'));
 
+//Manejador de errores
+app.use((err, req, res, next)=>{
+    res.status(500).json({message: err.message});
+})
+
 //Rutas
 app.use('/Alumno', routerAlumnos);
 app.use('/Maestro', routerMaestros);

@@ -1,0 +1,5 @@
+::1 - - [02/Oct/2025:13:56:58 +0000] "GET /Supers/ObtenerSupers HTTP/1.1" 500 1605 "-" "HTTPie"
+::1 - - [02/Oct/2025:13:57:17 +0000] "GET /Supers/ObtenerSupers HTTP/1.1" 500 1605 "-" "HTTPie"
+::1 - - [02/Oct/2025:13:58:09 +0000] "GET /Supers/ObtenerSupers HTTP/1.1" 500 1596 "-" "HTTPie"
+::1 - - [02/Oct/2025:15:36:12 +0000] "GET /Supers/ObtenerSupers HTTP/1.1" 500 30 "-" "HTTPie"
+::1 - - [03/Oct/2025:13:37:28 +0000] "GET /Supers/ObtenerSupers HTTP/1.1" 500 30 "-" "HTTPie"
