@@ -1,0 +1,17 @@
+{
+  "name": "jsdoc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "doc": "jsdoc -c jsdoc.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "jsdoc": "^4.0.5"
+  }
+}
