@@ -2,11 +2,14 @@ import swaggerJSDoc from "swagger-jsdoc";
 import path from 'path';
 import { fileURLToPath } from "url";
 import { dirname } from "path";
+import { SwaggerTheme } from 'swagger-themes';
 
+const theme = new SwaggerTheme()
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const swaggerYamlPath = path.join(__dirname, 'swagger', 'swagger.yml');
 
 const options = {
+    explorer: true,
     definition: {
         openapi: "3.0.0",
         info: {
@@ -25,9 +28,9 @@ const options = {
             },
         ],
     },
-    apis: [swaggerYamlPath]
+    apis: [swaggerYamlPath],
 };
 
+export const customCss = theme.getBuffer('dracula').toString();
 const specs = swaggerJSDoc(options);
-console.log(specs);
 export default specs;

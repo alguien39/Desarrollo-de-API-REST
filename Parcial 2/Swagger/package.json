@@ -15,6 +15,7 @@
     "express": "^5.1.0",
     "jsdoc": "^4.0.5",
     "swagger-jsdoc": "^6.2.8",
+    "swagger-themes": "^1.4.3",
     "swagger-ui-express": "^5.0.1"
   }
 }
